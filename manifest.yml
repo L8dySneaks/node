@@ -1,0 +1,4 @@
+---
+applications:
+- name: steph-demo
+  command: node app.js

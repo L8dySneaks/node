@@ -1,0 +1,26 @@
+resources:
+- name: steph-app
+  type: git
+  source:
+    uri: https://bitbucket.dcsg.com/scm/ce/steph-demo.git
+    private_key: ((gitkey:private))
+    branch: master
+- name: steph-demo-cf
+  type: cf
+  source:
+    api: https://api.sys.gn01.pcf.dcsg.com
+    username: ((cf_user_nonprod))
+    password: ((cf_password_nonprod))
+    organization: bazaz-demo
+    space: dev
+    skip_cert_check: true
+
+jobs:
+- name: steph-deploy
+  plan:
+  - get: steph-app
+    trigger: true
+  - put: steph-demo-cf
+    params:
+      manifest: steph-app/manifest.yml
+      path: steph-app/

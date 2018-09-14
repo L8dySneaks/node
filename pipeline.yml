@@ -1,11 +1,10 @@
 resources:
-- name: steph-app
+- name: steph-node-app
   type: git
   source:
-    uri: https://bitbucket.dcsg.com/scm/ce/steph-demo.git
-    private_key: ((gitkey:private))
+    uri: https://github.com/L8dySneaks/node.git
     branch: master
-- name: steph-demo-cf
+- name: steph-node-demo-cf
   type: cf
   source:
     api: https://api.sys.gn01.pcf.dcsg.com
@@ -18,9 +17,9 @@ resources:
 jobs:
 - name: steph-deploy
   plan:
-  - get: steph-app
+  - get: steph-node-app
     trigger: true
-  - put: steph-demo-cf
+  - put: steph-node-demo-cf
     params:
-      manifest: steph-app/manifest.yml
-      path: steph-app/
+      manifest: steph-node-app/manifest.yml
+      path: steph-node-app/

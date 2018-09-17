@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 
 fs.readFile('./data.json', 'utf-8', (err,data) => {
   var data = JSON.parse(data);
-  data.send(data.name);
+  console.log(data.name);
 });
 
 app.listen(port, function () {

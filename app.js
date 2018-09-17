@@ -6,9 +6,9 @@ var moduleTest = require('./module1.js');
 // var data = require('./data.json');
 
 const port = process.env.PORT || 3000;
-app.get('/', function (req, res) {
-  res.send(moduleTest.text1);
-});
+// app.get('/', function (req, res) {
+//   res.send(moduleTest.text1);
+// });
 
 
 // fs.readFile('./data.json', 'utf-8', (err,data) => {

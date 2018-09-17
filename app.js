@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
+var moduleTest = require('./module1.js');
 const port = process.env.PORT || 3000;
 app.get('/', function (req, res) {
-  res.send('New test on Monday');
+  res.send(moduleTest.text1);
 });
 
 

@@ -25,7 +25,7 @@ var messages = [
 ]
 
 
-app.get('/messages', (req, res) =>{
+app.get('/', (req, res) =>{
   response.send(messages);
 });
 

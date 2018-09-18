@@ -31,7 +31,7 @@
     }
 
     function getMessages() {
-        $.get('https://steph-demo.apps.gn01.pcf.dcsg.com/messages', (data) => {
+        $.get('/', (data) => {
             data.forEach(addMessages);
         })
     }

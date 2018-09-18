@@ -1,35 +1,17 @@
-var express = require('express');
-var app = express();
-var moduleTest = require('./module1.js');
+var express = require('express')
+var app = express()
 
-// var fs = require('fs');
-// var data = require('./data.json');
-
-const port = process.env.PORT || 3000;
-// app.get('/', function (req, res) {
-//   res.send(moduleTest.text1);
-// });
-
-
-// fs.readFile('./data.json', 'utf-8', (err,data) => {
-//   var data = JSON.parse(data);
-//   console.log(data.name);
-// });
-
-
-app.use(express.static(__dirname));
+app.use(express.static(__dirname))
 
 var messages = [
-  {name: 'Steph', message: 'new app'},
-  {name: 'Jim', message: 'testing new app'}
+    {name: 'Tim', message: 'Hi'},
+    {name: 'Jane', message: 'Hello'}
 ]
 
+app.get('/messages', (req, res) =>{
+    res.send(messages)
+})
 
-app.get('/', (req, res) =>{
-  response.send(messages);
-});
-
-
-app.listen(port, function () {
-  console.log(`Example app listening on port ${port}!`);
-});
+var server = app.listen(3000, () => {
+    console.log('server is listening on port', server.address().port)
+})

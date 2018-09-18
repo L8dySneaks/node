@@ -18,6 +18,18 @@ const port = process.env.PORT || 3000;
 
 
 app.use(express.static(__dirname));
+
+var messages = [
+  {name: 'Steph', message: 'new app'},
+  {name: 'Jim', message: 'testing new app'}
+]
+
+
+app.get('/messages', (req, res) =>{
+  response.send(messages);
+});
+
+
 app.listen(port, function () {
   console.log(`Example app listening on port ${port}!`);
 });
